@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Phone number to word conversion tool';
+  title = 'Generate alpha-numeric combinations for phone number';
 }

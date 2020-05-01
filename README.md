@@ -1,4 +1,5 @@
-### Phone-keypad-combinations generator
+Phone-keypad-combinations generator
+-
 
 **Input:** phone number (Numeric)
 
@@ -23,7 +24,9 @@ Map<String, List<String>> KEYPAD_MAP = new HashMap<>() {{
         }};
 ```
 
-**Building application **
+Build & deploy as Maven project
+-
+**Building application**
 
 1. Checkout code 
 2. cd into the location from terminal
@@ -34,6 +37,16 @@ Map<String, List<String>> KEYPAD_MAP = new HashMap<>() {{
  
  Run `java -jar target/phone-keypad-combinations.jar`
  
+ Build & deploy as Docker container
+ -
  **Launch application as Docker container**
  1. Build Image - `docker image build -t phone-keypad-combinations .`
- 2. Launch image as container - `docker run -d -p 8080:8080 phone-keypad-combinations:latest`
+ 2. Launch image as container - `docker run -d --rm -p 8080:8080 phone-keypad-combinations:latest`
+ 
+ Launch application from GitHub package (Docker)
+ -
+ ```docker container run -p 8080:8080 --rm -d docker.pkg.github.com/gmeka/phone-keypad-combinations/phone-keypad-combinations:latest```
+ 
+ **Accessing Application**
+  -
+  Go to http://localhost:8080

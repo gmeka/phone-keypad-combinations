@@ -6,7 +6,7 @@ import java.util.*;
 
 @Service
 public class CombinationsGeneratorService {
-    private static final Map<String, List<String>> KEYPAD_MAP = new HashMap<String, List<String>>() {{
+    private static final Map<String, List<String>> KEYPAD_MAP = new HashMap<>() {{
         put("1", List.of("1"));
         put("2", List.of("2", "A", "B", "C"));
         put("3", List.of("3", "D", "E", "F"));
@@ -26,9 +26,7 @@ public class CombinationsGeneratorService {
         List<String> partialResult = new ArrayList<>();
         String firstDigit = String.valueOf(phoneNum.charAt(0));
 
-        result.forEach((i) -> KEYPAD_MAP.get(firstDigit).forEach((j) -> {
-            partialResult.add(i + j);
-        }));
+        result.forEach((i) -> KEYPAD_MAP.get(firstDigit).forEach((j) -> partialResult.add(i + j)));
         return getCombinationsRecursive(phoneNum.substring(1), partialResult);
     }
 
@@ -39,7 +37,7 @@ public class CombinationsGeneratorService {
     }
 
     private void validate(String phoneNumber) {
-        Long.valueOf(phoneNumber).longValue();
+        Long.valueOf(phoneNumber);
     }
 
     public int countCombinations(String phoneNumber) {
@@ -49,17 +47,5 @@ public class CombinationsGeneratorService {
                 .reduce(Math::multiplyExact)
                 .getAsInt();
 
-    }
-
-    public static void main(String[] args) {
-        CombinationsGeneratorService myClass = new CombinationsGeneratorService();
-
-        System.out.println(myClass.getCombinations("27"));
-        System.out.println(myClass.countCombinations("1234567890"));
-
-        List<String> list = new ArrayList<>(5120);
-        System.out.println(list.size());
-
-        System.out.println(Long.valueOf("4842384139").longValue());
     }
 }
