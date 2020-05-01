@@ -1,9 +1,9 @@
 Phone-keypad-combinations generator
 -
 
-**Input:** phone number (Numeric)
+**Input:** 7 or 10 digit number
 
-**Output:** list of alpha-numeric combinations for given phone number
+**Output:** All possible alpha-numeric combinations for given number
 
 **Assumptions:**
   - Number itself is a possible combinations. Ex: service user [2, A, B, C] as valid combinations for keypad entry 2.
